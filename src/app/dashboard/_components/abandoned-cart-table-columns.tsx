@@ -99,7 +99,7 @@ export function getColumns({ setRowAction }: GetColumnsProps): ColumnDef<CartIte
                 if (properties && typeof properties === "object") {
                   // Iterate over the keys to check for variations of "Product Type"
                   for (const key of Object.keys(properties)) {
-                    if (key.toLowerCase().includes("product type")) {
+                    if (key.toLowerCase().includes("product type") || key.includes("Product_Type")) {
                       // case-insensitive check
                       return properties[key]?.toString() ?? null;
                     }
@@ -124,7 +124,7 @@ export function getColumns({ setRowAction }: GetColumnsProps): ColumnDef<CartIte
                 if (properties && typeof properties === "object") {
                   for (const key of Object.keys(properties)) {
                     // Case-insensitive check for keys containing 'Instagram'
-                    if (key.toLowerCase().includes("instagram") || key.includes("Product_Type")) {
+                    if (key.toLowerCase().includes("instagram")) {
                       return properties[key]?.toString() ?? null; // Return the value as a string (empty if null/undefined)
                     }
                   }
