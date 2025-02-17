@@ -100,7 +100,7 @@ export function getColumns({ setRowAction }: GetColumnsProps): ColumnDef<CartIte
                   // Iterate over the keys to check for variations of "Product Type"
                   for (const key of Object.keys(properties)) {
                     // Case-insensitive check for 'Product Type' in the key
-                    if (key.toLowerCase().includes("product type")) {
+                    if (key.toLowerCase().includes("product type") || key.toLowerCase().includes("product_type")) {
                       let value = properties[key]?.toString() ?? "";
 
                       // Remove extra quotes at the beginning and end of the string
