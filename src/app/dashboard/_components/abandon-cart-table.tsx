@@ -10,12 +10,12 @@ import { useDataTable } from "@/hooks/use-data-table";
 
 import { CART_STATUS } from "@/constants";
 import { CartItem } from "@prisma/client";
+import { getCartItems, getCartStatusCounts } from "../_lib/queries";
 import { getStatusIcon } from "../_lib/utils";
 import { AbandonedCartTableToolbarActions } from "./abandon-cart-table-toolbar-action";
 import { getColumns } from "./abandoned-cart-table-columns";
-import { useFeatureFlags } from "./feature-flags-provider";
-import { getCartItems, getCartStatusCounts } from "../_lib/queries";
 import { DeleteCartItemsDialog } from "./delete-cart-item-dialog";
+import { useFeatureFlags } from "./feature-flags-provider";
 
 interface CartsTableProps {
   promises: Promise<[Awaited<ReturnType<typeof getCartItems>>, Awaited<ReturnType<typeof getCartStatusCounts>>]>;
