@@ -1,0 +1,67 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  firstName String    @map("first_name")
+  lastName  String    @map("last_name")
+  email     String    @unique
+  clerkId   String    @unique @map("clerk_id")
+  role      User_Role @default(USER) @map("role")
+
+  @@map("users")
+}
+
+enum User_Role {
+  ADMIN
+  USER
+}
+
+model Customer {
+  id        String  @id @default(cuid())
+  name      String?
+  email     String? @unique
+  phone     String? @unique
+  instagram String  @unique
+
+  cartItems CartItem[]
+}
+
+model CartItem {
+  id Int @id @default(autoincrement())
+
+  productId    String @map("product_id")
+  productName  String @map("product_name")
+  productImage String? @map("product_image")
+  productPrice Float  @map("product_price")
+  productSku   String? @map("product_sku")
+  productQty   Int    @map("product_qty")
+
+  ipAddress String? @map("ip_address")
+  userAgent String? @map("user_agent")
+
+  properties Json?
+
+  status Cart_Status @default(PENDING)
+
+  // Foreign key relationships
+  customer   Customer? @relation(fields: [customerId], references: [id])
+  customerId String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("cart_items")
+}
+
+enum Cart_Status {
+  PENDING
+  RECOVERED
+  CANCELLED
+}

@@ -1,0 +1,80 @@
+{
+  "id": "Z2NwLXVzLWNlbnRyYWwxOjAxSkpWUVIwMUZZV1A4Q05aMEsyOUoxTUNY",
+  "token": "Z2NwLXVzLWNlbnRyYWwxOjAxSkpWUVIwMUZZV1A4Q05aMEsyOUoxTUNY",
+  "line_items": [
+    {
+      "id": 42469411815484,
+      "properties": null,
+      "quantity": 1,
+      "variant_id": 42469411815484,
+      "key": "42469411815484:a1927d3905e7dca0b4545bc5e8aa1a0d",
+      "discounted_price": "0.00",
+      "discounts": [],
+      "gift_card": false,
+      "grams": 0,
+      "line_price": "0.00",
+      "original_line_price": "0.00",
+      "original_price": "0.00",
+      "price": "0.00",
+      "product_id": 7900438855740,
+      "sku": "",
+      "taxable": false,
+      "title": "Con Fashion & Beauty Edition' December 2024 Vol 324 - Canvas",
+      "total_discount": "0.00",
+      "vendor": "Glam Model",
+      "discounted_price_set": {
+        "shop_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        }
+      },
+      "line_price_set": {
+        "shop_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        }
+      },
+      "original_line_price_set": {
+        "shop_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        }
+      },
+      "price_set": {
+        "shop_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        }
+      },
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.0",
+          "currency_code": "USD"
+        }
+      }
+    }
+  ],
+  "note": "",
+  "updated_at": "2025-01-30T13:52:26.786Z",
+  "created_at": "2025-01-30T13:52:24.949Z"
+}
