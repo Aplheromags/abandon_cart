@@ -99,9 +99,15 @@ export function getColumns({ setRowAction }: GetColumnsProps): ColumnDef<CartIte
                 if (properties && typeof properties === "object") {
                   // Iterate over the keys to check for variations of "Product Type"
                   for (const key of Object.keys(properties)) {
+                    // Case-insensitive check for 'Product Type' in the key
                     if (key.toLowerCase().includes("product type")) {
-                      // case-insensitive check
-                      return properties[key]?.toString() ?? null;
+                      let value = properties[key]?.toString() ?? "";
+
+                      // Remove extra quotes at the beginning and end of the string
+                      if (value.startsWith('"') && value.endsWith('"')) {
+                        value = value.slice(1, -1); // Remove the first and last character (the quotes)
+                      }
+                      return value;
                     }
                   }
                 }
@@ -124,8 +130,15 @@ export function getColumns({ setRowAction }: GetColumnsProps): ColumnDef<CartIte
                 if (properties && typeof properties === "object") {
                   for (const key of Object.keys(properties)) {
                     // Case-insensitive check for keys containing 'Instagram'
-                    if (key.toLowerCase().includes("instagram") || key.includes("Product_Type")) {
-                      return properties[key]?.toString() ?? null; // Return the value as a string (empty if null/undefined)
+                    if (key.toLowerCase().includes("instagram")) {
+                      let value = properties[key]?.toString() ?? null;
+
+                      // If the value starts and ends with quotes, remove them
+                      if (value && value.startsWith('"') && value.endsWith('"')) {
+                        value = value.slice(1, -1); // Remove the first and last character (the quotes)
+                      }
+
+                      return value;
                     }
                   }
                 }
