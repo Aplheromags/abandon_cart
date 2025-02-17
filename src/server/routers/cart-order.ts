@@ -1,7 +1,6 @@
 import { verifyHmac } from "@/lib/utils";
 import { Bindings } from "@/types";
 import { PrismaClient } from "@prisma/client";
-import { writeFile } from "fs/promises";
 import { Hono } from "hono";
 import { env } from "hono/adapter";
 import { revalidateTag } from "next/cache";
@@ -21,7 +20,7 @@ const abandonCartOrders = new Hono<{ Bindings: Bindings }>().post("/abandon-cart
     }
 
     const data = await JSON.parse(body);
-    await writeFile("./test.json", JSON.stringify(data, null, 2)); // Specify the path to your JSON file
+    // await writeFile("./test.json", JSON.stringify(data, null, 2)); // Specify the path to your JSON file
 
     await db.cartItem.create({
       data: {
