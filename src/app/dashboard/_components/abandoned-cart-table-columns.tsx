@@ -87,7 +87,7 @@ export function getColumns({ setRowAction }: GetColumnsProps): ColumnDef<CartIte
       },
     },
     {
-      accessorKey: "Product Type",
+      accessorKey: "productType",
       enableSorting: false,
       header: ({ column }) => <DataTableColumnHeader column={column} title="Product Type" />,
       cell: ({ row }) => {
@@ -96,8 +96,14 @@ export function getColumns({ setRowAction }: GetColumnsProps): ColumnDef<CartIte
             <span className="max-w-[31.25rem] truncate font-medium">
               {(() => {
                 const properties = row.original?.properties as JsonObject | undefined;
-                if (properties && typeof properties === "object" && "_Product Type" in properties) {
-                  return String(properties["_Product Type"] ?? "");
+                if (properties && typeof properties === "object") {
+                  // Iterate over the keys to check for variations of "Product Type"
+                  for (const key of Object.keys(properties)) {
+                    if (key.toLowerCase().includes("product type")) {
+                      // case-insensitive check
+                      return String(properties[key] ?? "");
+                    }
+                  }
                 }
               })()}
             </span>
@@ -106,7 +112,7 @@ export function getColumns({ setRowAction }: GetColumnsProps): ColumnDef<CartIte
       },
     },
     {
-      accessorKey: "Instagram",
+      accessorKey: "instagram",
       enableSorting: false,
       header: ({ column }) => <DataTableColumnHeader column={column} title="Instagram" />,
       cell: ({ row }) => {
@@ -115,8 +121,13 @@ export function getColumns({ setRowAction }: GetColumnsProps): ColumnDef<CartIte
             <span className="max-w-[31.25rem] truncate font-medium">
               {(() => {
                 const properties = row.original?.properties as JsonObject | undefined;
-                if (properties && typeof properties === "object" && "_Instagram" in properties) {
-                  return String(properties["_Instagram"] ?? "");
+                if (properties && typeof properties === "object") {
+                  for (const key of Object.keys(properties)) {
+                    // Case-insensitive check for keys containing 'Instagram'
+                    if (key.toLowerCase().includes("instagram")) {
+                      return String(properties[key] ?? ""); // Return the value as a string (empty if null/undefined)
+                    }
+                  }
                 }
               })()}
             </span>
